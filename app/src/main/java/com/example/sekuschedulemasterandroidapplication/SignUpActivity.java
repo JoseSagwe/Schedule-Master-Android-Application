@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
+
 public class SignUpActivity extends AppCompatActivity {
 
     EditText first_name, last_name, email, password, confirm;
@@ -81,12 +83,32 @@ public class SignUpActivity extends AppCompatActivity {
         if (email_e.isEmpty()){
             email.setError("Email cannot be Empty");
             return false;
+        } else if (StringHelper.regexEmailValidationPattern(email_e)){
+            email.setError("Please Enter Valid Email");
+            return false;
         } else {
             last_name.setError(null);
             return true;
         }
     }
     //End of validate Email field
+
+    public boolean validatePasswordAndConfirm(){
+        String password_p = password.getText().toString();
+        String confirm_p = confirm.getText().toString();
+
+        //check if Password and Confirm fields are empty
+        if (password_p.isEmpty() || confirm_p.isEmpty()){
+            password.setError("Password field cannot be Empty");
+            confirm.setError("Confirm field cannot be Empty");
+            return false;
+        } else {
+            password.setError(null);
+            confirm.setError(null);
+            return true;
+        }
+    }
+    //End of validate Password and Confirm fields
 
 }
 //End of Sign Up Activity class
