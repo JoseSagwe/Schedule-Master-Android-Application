@@ -20,4 +20,11 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void goToSignUpAct(View view){
+        Intent intent = new Intent (SignInActivity.this, SignUpActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
