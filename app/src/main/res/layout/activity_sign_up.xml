@@ -97,6 +97,19 @@
 
         </LinearLayout>
 
+
+        <Button
+            android:id="@+id/sign_up_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:background="@drawable/main_btn_styling"
+            android:layout_marginTop="22dp"
+            android:textColor="@color/dark_royal_purple"
+            android:textFontWeight="700"
+            android:text="Sign Up" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
