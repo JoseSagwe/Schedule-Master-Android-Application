@@ -48,6 +48,10 @@ public class SignUpActivity extends AppCompatActivity {
         finish();
     }
 
+    public void processFormFields(){
+        
+    }
+
     public boolean validateFirstName(){
         String firstName = first_name.getText().toString();
 
