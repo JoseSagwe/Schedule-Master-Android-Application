@@ -9,6 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -62,11 +68,31 @@ public class SignUpActivity extends AppCompatActivity {
         if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePasswordAndConfirm()){
             return;
         }
-
-
-        
         //End of Check for Errors
-        Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+
+        //Instantiate The request queue
+        RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
+        //The URL Posting TO:
+        String url = "http://127.0.0.1:8080/api/vi/user/register";
+
+        //String Request Object
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response.equalsIgnoreCase("success")){
+                    Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                }
+                //End of Response If block
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });  // End of String Request Object.
+
+
     }
     //End Of Process Form Fields Method
 
