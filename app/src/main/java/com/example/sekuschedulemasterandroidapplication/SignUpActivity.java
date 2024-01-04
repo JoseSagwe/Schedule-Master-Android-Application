@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,12 +79,14 @@ public class SignUpActivity extends AppCompatActivity {
         //Instantiate The request queue
         RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
         //The URL Posting TO:
-        String url = "http://127.0.0.1:8080/api/vi/user/register";
+        //String url = "http://127.0.0.1:8080/api/vi/user/register";
+        String url = "http://192.168.100.11:8080/Api/v1/user/register";
 
         //String Request Object
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.d("SignUpActivity", "Response: " + response);
                 if (response.equalsIgnoreCase("success")){
                     first_name.setText(null);
                     last_name.setText(null);
@@ -98,6 +101,9 @@ public class SignUpActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Log.e("SignUpActivity", "Error during network request", error);
+                System.out.println(error.getMessage());
                 Toast.makeText(SignUpActivity.this, "Registration Un-successful", Toast.LENGTH_LONG).show();
             }
         }){
