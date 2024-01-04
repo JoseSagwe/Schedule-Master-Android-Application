@@ -33,6 +33,13 @@ public class SignUpActivity extends AppCompatActivity {
         //Hook Sign Up Button:
         sign_up_btn = findViewById(R.id.sign_up_btn);
 
+        sign_up_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                processFormFields();
+            }
+        });
+
     }
 
     //End of On Create Activity
