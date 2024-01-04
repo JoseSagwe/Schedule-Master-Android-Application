@@ -1,5 +1,6 @@
 package com.example.sekuschedulemasterandroidapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,6 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -80,6 +85,11 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response.equalsIgnoreCase("success")){
+                    first_name.setText(null);
+                    last_name.setText(null);
+                    email.setText(null);               // Setting the text field empty when user clicks button to stop posting again
+                    password.setText(null);
+                    confirm.setText(null);
                     Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
                 }
                 //End of Response If block
@@ -88,11 +98,22 @@ public class SignUpActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(SignUpActivity.this, "Registration Un-successful", Toast.LENGTH_LONG).show();
             }
-        });  // End of String Request Object.
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("first_name", first_name.getText().toString());
+                params.put("last_name", last_name.getText().toString());
+                params.put("email", email.getText().toString());
+                params.put("password", password.getText().toString());
+                return params;
+            }
+        };  // End of String Request Object.
 
-
+        queue.add(stringRequest);
     }
     //End Of Process Form Fields Method
 
@@ -149,13 +170,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         //check if Password and Confirm fields are empty
         if (password_p.isEmpty()){
-            password.setError("Password field cannot be Empty");
+            password.setError("Password field cannot be Empty!");
             return false;
-        } else if (password_p.equals(confirm_p)){
+        } else if (!password_p.equals(confirm_p)){
             password.setError("Password do not match!");
             return false;
         }else if (confirm_p.isEmpty()) {
-            confirm.setError("Confirm field cannot be Empty");
+            confirm.setError("Confirm field cannot be Empty!");
             return false;
         }else {
             password.setError(null);
