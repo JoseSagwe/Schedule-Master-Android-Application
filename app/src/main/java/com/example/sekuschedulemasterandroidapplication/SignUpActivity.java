@@ -62,6 +62,9 @@ public class SignUpActivity extends AppCompatActivity {
         if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePasswordAndConfirm()){
             return;
         }
+
+
+        
         //End of Check for Errors
         Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
     }
@@ -119,11 +122,16 @@ public class SignUpActivity extends AppCompatActivity {
         String confirm_p = confirm.getText().toString();
 
         //check if Password and Confirm fields are empty
-        if (password_p.isEmpty() || confirm_p.isEmpty()){
+        if (password_p.isEmpty()){
             password.setError("Password field cannot be Empty");
+            return false;
+        } else if (password_p.equals(confirm_p)){
+            password.setError("Password do not match!");
+            return false;
+        }else if (confirm_p.isEmpty()) {
             confirm.setError("Confirm field cannot be Empty");
             return false;
-        } else {
+        }else {
             password.setError(null);
             confirm.setError(null);
             return true;
