@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
 
@@ -48,9 +49,18 @@ public class SignUpActivity extends AppCompatActivity {
         finish();
     }
 
+
     public void processFormFields(){
-        
+        //Check for Errors
+        if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePasswordAndConfirm()){
+            return;
+        }
+        //End of Check for Errors
+        Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
     }
+    //End Of Process Form Fields Method
+
+
 
     public boolean validateFirstName(){
         String firstName = first_name.getText().toString();
