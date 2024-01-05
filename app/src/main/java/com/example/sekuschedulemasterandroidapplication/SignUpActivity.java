@@ -165,8 +165,8 @@ public class SignUpActivity extends AppCompatActivity {
             email.setError("Please Enter Valid Email");
             return false;
         } else {
-            last_name.setError(null);
-            return true;
+            email.setError(null);
+            return true; //Check if Email Is empty
         }
     }
     //End of validate Email field
