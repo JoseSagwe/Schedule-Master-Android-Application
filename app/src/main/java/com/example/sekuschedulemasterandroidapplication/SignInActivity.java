@@ -16,6 +16,7 @@ public class SignInActivity extends AppCompatActivity {
     Button sign_in_btn;
     EditText et_email, et_password;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +39,13 @@ public class SignInActivity extends AppCompatActivity {
         finish();
     }
 
+
     public void goToSignUpAct(View view){
         Intent intent = new Intent (SignInActivity.this, SignUpActivity.class);
         startActivity(intent);
         finish();
     }
+
 
     public boolean validateEmail(){
         String email = et_email.getText().toString();
@@ -60,6 +63,7 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
     //End of validate Email field
+
 
 
     public boolean validatePassword(){
