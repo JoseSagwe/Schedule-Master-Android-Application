@@ -12,6 +12,7 @@ import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
 
 public class SignInActivity extends AppCompatActivity {
 
+
     Button sign_in_btn;
     EditText et_email, et_password;
 
@@ -30,6 +31,7 @@ public class SignInActivity extends AppCompatActivity {
     }
     //End of On Create Activity
 
+
     public void goToHome(View view){
         Intent intent = new Intent (SignInActivity.this, MainActivity.class);
         startActivity(intent);
@@ -41,7 +43,6 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
     public boolean validateEmail(){
         String email = et_email.getText().toString();
@@ -59,6 +60,7 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
     //End of validate Email field
+
 
     public boolean validatePassword(){
         String password_p = et_password.getText().toString();
