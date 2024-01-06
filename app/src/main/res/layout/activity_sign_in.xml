@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="9dp" />
 
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -30,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
-
 
         <EditText
             android:id="@+id/email"
@@ -63,8 +63,7 @@
             android:textFontWeight="700"
             android:textColor="@color/dark_royal_purple"
             android:textSize="19sp"/>
-
-
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
