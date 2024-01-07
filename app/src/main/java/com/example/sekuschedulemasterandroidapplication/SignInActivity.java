@@ -29,15 +29,32 @@ public class SignInActivity extends AppCompatActivity {
         //Hook Button
         sign_in_btn = findViewById(R.id.sign_in_btn);
 
+        //Set Sign In Button On click Listener:
+        sign_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                authenticateUser();
+            }
+        });
+
     }
     //End of On Create Activity
 
+    public void authenticateUser(){
+//Check for Errors
+        if ( !validateEmail() || !validatePassword()){
+            return;
+        } //End Of check For errors
+        
+    }
 
     public void goToHome(View view){
         Intent intent = new Intent (SignInActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
+
+    //End of Go to Home Intent Method
 
 
     public void goToSignUpAct(View view){
@@ -46,6 +63,7 @@ public class SignInActivity extends AppCompatActivity {
         finish();
     }
 
+    //End of Go to Sign Up Intent Method
 
     public boolean validateEmail(){
         String email = et_email.getText().toString();
