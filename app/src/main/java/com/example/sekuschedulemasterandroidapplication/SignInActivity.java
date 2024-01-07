@@ -64,12 +64,10 @@ public class SignInActivity extends AppCompatActivity {
     }
     //End of validate Email field
 
-
-
     public boolean validatePassword(){
         String password_p = et_password.getText().toString();
 
-        //check if Password and Confirm fields are empty
+        //check if Password  field is empty
         if (password_p.isEmpty()){
             et_password.setError("Password field cannot be Empty!");
             return false;
@@ -78,6 +76,7 @@ public class SignInActivity extends AppCompatActivity {
             return true;
         }
     }
-    //End of validate Password and Confirm fields
+    //End of validate Password  field
 
 }
+//End of Sign In Activity Class
