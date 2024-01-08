@@ -12,6 +12,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.sekuschedulemasterandroidapplication.helpers.StringHelper;
 
+import java.util.HashMap;
+
 public class SignInActivity extends AppCompatActivity {
 
 
@@ -49,11 +51,16 @@ public class SignInActivity extends AppCompatActivity {
         } //End Of check For errors
 
         //Instantiate The request queue
-        RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
         //The URL Posting TO:
-        //String url = "http://127.0.0.1:8080/api/vi/user/register";
-        String url = "http://192.168.188.226:8080/Api/v1/user/register";
-        
+        //String url = "http://127.0.0.1:8080/api/vi/user/login";
+        String url = "http://192.168.188.226:8080/Api/v1/user/login";
+
+
+        //Set Parameters;
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("email", et_email.getText().toString());
+        params.put("password", et_password.getText().toString());
 
     }
 
