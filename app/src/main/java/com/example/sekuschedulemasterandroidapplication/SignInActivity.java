@@ -45,7 +45,7 @@ public class SignInActivity extends AppCompatActivity {
         if ( !validateEmail() || !validatePassword()){
             return;
         } //End Of check For errors
-        
+
     }
 
     public void goToHome(View view){
