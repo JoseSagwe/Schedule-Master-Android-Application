@@ -74,9 +74,17 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    
-                }catch (JSONException e){
+                    //Get Values From Response Object
+                    String first_name = (String) response.get("first_name");
+                    String last_name = (String) response.get("last_name");
+                    String email = (String) response.get("email");
 
+                    //Pass Values to Profile Activity
+                    
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 } //End of Try Block.
 
             }
