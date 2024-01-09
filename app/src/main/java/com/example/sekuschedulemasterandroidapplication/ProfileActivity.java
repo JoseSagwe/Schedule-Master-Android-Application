@@ -3,6 +3,7 @@ package com.example.sekuschedulemasterandroidapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,7 +24,13 @@ public class ProfileActivity extends AppCompatActivity {
         //Hook Sign Out Button
         sign_out_btn = findViewById(R.id.sign_out_btn);
 
-        //Set onclick Listener
+        //Set on click Listener
+        sign_out_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUserOut();
+            }
+        });
 
 
     }

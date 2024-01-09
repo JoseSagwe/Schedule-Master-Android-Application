@@ -79,7 +79,12 @@ public class SignInActivity extends AppCompatActivity {
                     String last_name = (String) response.get("last_name");
                     String email = (String) response.get("email");
 
+                    //Set Intent Actions:
+                    Intent goToProfile = new Intent(SignInActivity.this, ProfileActivity.class);
                     //Pass Values to Profile Activity
+                    goToProfile.putExtra("first_name", first_name);
+                    goToProfile.putExtra("last_name", last_name);
+                    goToProfile.putExtra("email", email);
 
 
                 }catch (JSONException e){
