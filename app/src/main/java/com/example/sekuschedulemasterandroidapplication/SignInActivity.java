@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -85,8 +86,9 @@ public class SignInActivity extends AppCompatActivity {
                     goToProfile.putExtra("first_name", first_name);
                     goToProfile.putExtra("last_name", last_name);
                     goToProfile.putExtra("email", email);
-
-
+                    //Start Activity
+                    startActivity(goToProfile);
+                    finish();
                 }catch (JSONException e){
                     e.printStackTrace();
                     System.out.println(e.getMessage());
@@ -96,9 +98,13 @@ public class SignInActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                error.printStackTrace();
+                System.out.println(error.getMessage());
+                Toast.makeText(SignInActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
             }
         });  // End of Set Request Object
+        // create Queue
+        queue.add(jsonObjectRequest);
 
     }
 
