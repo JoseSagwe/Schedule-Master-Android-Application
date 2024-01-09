@@ -80,7 +80,7 @@ public class SignInActivity extends AppCompatActivity {
                     String email = (String) response.get("email");
 
                     //Pass Values to Profile Activity
-                    
+
 
                 }catch (JSONException e){
                     e.printStackTrace();
