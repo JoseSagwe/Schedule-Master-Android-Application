@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView first_name, last_name, email;
+    TextView tv_first_name, tv_last_name, tv_email;
     Button sign_out_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         //Hook Text View
-        first_name = findViewById(R.id.first_name);
-        last_name = findViewById(R.id.last_name);
-        email = findViewById(R.id.email);
+        tv_first_name = findViewById(R.id.first_name);
+        tv_last_name = findViewById(R.id.last_name);
+        tv_email = findViewById(R.id.email);
+
+        //Get Intent Extra Values
+        String first_name = getIntent().getStringExtra("first_name");
+        String last_name = getIntent().getStringExtra("last_name");
+        String email = getIntent().getStringExtra("email");
 
         //Hook Sign Out Button
         sign_out_btn = findViewById(R.id.sign_out_btn);
