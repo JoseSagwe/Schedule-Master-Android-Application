@@ -21,10 +21,15 @@ public class ProfileActivity extends AppCompatActivity {
         tv_last_name = findViewById(R.id.last_name);
         tv_email = findViewById(R.id.email);
 
-        //Get Intent Extra Values
+        //Get Intent Extra Values from signIn Activity
         String first_name = getIntent().getStringExtra("first_name");
         String last_name = getIntent().getStringExtra("last_name");
         String email = getIntent().getStringExtra("email");
+
+        //Set Text View Profile Values
+        tv_first_name.setText(first_name);
+        tv_last_name.setText(last_name);
+        tv_email.setText(email);
 
         //Hook Sign Out Button
         sign_out_btn = findViewById(R.id.sign_out_btn);
@@ -42,7 +47,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     public void signUserOut(){
+        tv_first_name.setText(null);
+        tv_last_name.setText(null);
+        tv_email.setText(null);
 
+        //Return User back to home page
+        
     }
 
 }
