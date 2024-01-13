@@ -42,8 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
                 signUserOut();
             }
         });
-
-
     }
 
 
