@@ -80,7 +80,7 @@ public class SignUpActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
         //The URL Posting TO:
         //String url = "http://127.0.0.1:8080/api/vi/user/register";
-        String url = "http://192.168.100.11:8080/Api/v1/user/register";
+        String url = "http://192.168.56.1:8080/Api/v1/user/register";
         //String url = "http://192.168.188.226:8080/Api/v1/test";
 
         //String Request Object
