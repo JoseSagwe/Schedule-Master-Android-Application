@@ -10,15 +10,12 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button sign_in, sign_up;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
     //End of On Create Method
-
 
 
     public void goToSignUp(View view){
@@ -36,7 +33,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //End of Sign In Activity
-
-
-
+    
 }
