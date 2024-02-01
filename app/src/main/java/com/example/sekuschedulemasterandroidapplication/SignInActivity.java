@@ -61,9 +61,7 @@ public class SignInActivity extends AppCompatActivity {
         //Instantiate The request queue
         RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
         //The URL Posting TO:
-        //String url = "http://127.0.0.1:8080/api/vi/user/login";
         String url = "http://192.168.56.1:8080/Api/v1/user/login";
-
 
         //Set Parameters;
         HashMap<String, String> params = new HashMap<String, String>();
@@ -80,15 +78,19 @@ public class SignInActivity extends AppCompatActivity {
                     String last_name = (String) response.get("last_name");
                     String email = (String) response.get("email");
 
+
                     //Set Intent Actions:
                     Intent goToProfile = new Intent(SignInActivity.this, ProfileActivity.class);
+
                     //Pass Values to Profile Activity
                     goToProfile.putExtra("first_name", first_name);
                     goToProfile.putExtra("last_name", last_name);
                     goToProfile.putExtra("email", email);
+
                     //Start Activity
                     startActivity(goToProfile);
                     finish();
+
                 }catch (JSONException e){
                     e.printStackTrace();
                     System.out.println(e.getMessage());
