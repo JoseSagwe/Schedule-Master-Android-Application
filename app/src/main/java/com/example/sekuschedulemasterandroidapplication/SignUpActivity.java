@@ -62,12 +62,12 @@ public class SignUpActivity extends AppCompatActivity {
         finish();
     }
 
+
     public void goToSignInAct(View view){
         Intent intent = new Intent (SignUpActivity.this, SignInActivity.class);
         startActivity(intent);
         finish();
     }
-
 
     public void processFormFields(){
         //Check for Errors
@@ -79,9 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
         //Instantiate The request queue
         RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
         //The URL Posting TO:
-        //String url = "http://127.0.0.1:8080/api/vi/user/register";
         String url = "http://192.168.56.1:8080/Api/v1/user/register";
-        //String url = "http://192.168.188.226:8080/Api/v1/test";
 
         //String Request Object
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -118,6 +116,7 @@ public class SignUpActivity extends AppCompatActivity {
                 params.put("password", password.getText().toString());
                 return params;
             }
+
         };  // End of String Request Object.
 
         queue.add(stringRequest);
