@@ -191,6 +191,5 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
     //End of validate Password and Confirm fields
-
 }
 //End of Sign Up Activity class

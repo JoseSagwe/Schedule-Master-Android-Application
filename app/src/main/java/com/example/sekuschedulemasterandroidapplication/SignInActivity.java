@@ -24,7 +24,6 @@ import java.util.HashMap;
 
 public class SignInActivity extends AppCompatActivity {
 
-
     Button sign_in_btn;
     EditText et_email, et_password;
 

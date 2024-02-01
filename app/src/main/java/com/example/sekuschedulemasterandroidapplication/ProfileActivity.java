@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-
     public void signUserOut(){
         tv_first_name.setText(null);
         tv_last_name.setText(null);
