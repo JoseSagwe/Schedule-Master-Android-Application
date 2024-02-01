@@ -10,8 +10,11 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
+
     TextView tv_first_name, tv_last_name, tv_email;
+
     Button sign_out_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+
+    
 
     public void signUserOut(){
         tv_first_name.setText(null);
