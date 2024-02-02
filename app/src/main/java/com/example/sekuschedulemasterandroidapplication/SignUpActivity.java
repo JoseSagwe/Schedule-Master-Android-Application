@@ -124,7 +124,6 @@ public class SignUpActivity extends AppCompatActivity {
     //End Of Process Form Fields Method
 
 
-
     public boolean validateFirstName(){
         String firstName = first_name.getText().toString();
 

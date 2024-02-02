@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     }
     //End of On Create Method
 
-
     public void goToSignUp(View view){
         Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
         startActivity(intent);
@@ -32,5 +31,4 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     //End of Sign In Activity
-
 }
