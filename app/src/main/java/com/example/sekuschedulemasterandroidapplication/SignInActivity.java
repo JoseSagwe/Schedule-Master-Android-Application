@@ -46,7 +46,6 @@ public class SignInActivity extends AppCompatActivity {
                 authenticateUser();
             }
         });
-
     }
     //End of On Create Activity
 
@@ -54,6 +53,7 @@ public class SignInActivity extends AppCompatActivity {
 //Check for Errors
         if ( !validateEmail() || !validatePassword()){
             return;
+
         } //End Of check For errors
 
         //Instantiate The request queue
@@ -61,10 +61,12 @@ public class SignInActivity extends AppCompatActivity {
         //The URL Posting TO:
         String url = "http://192.168.56.1:8080/Api/v1/user/login";
 
+
         //Set Parameters;
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("email", et_email.getText().toString());
         params.put("password", et_password.getText().toString());
+
 
         //Set Request Object
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
